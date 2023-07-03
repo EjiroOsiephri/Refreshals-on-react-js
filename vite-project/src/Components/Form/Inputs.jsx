@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Buttons from "./Buttons";
 
 const Inputs = () => {
   const [userName, setUsername] = useState("");
@@ -27,7 +28,12 @@ const Inputs = () => {
           onChange={userAgeInputChange}
           placeholder="Enter a valid age"
         />
+        <Buttons></Buttons>
       </form>
+      <div className="inputPageValue">
+        <h4>My Username is : {userName}</h4>
+        <h4>I'm {userAge} Years old</h4>
+      </div>
     </React.Fragment>
   );
 };
