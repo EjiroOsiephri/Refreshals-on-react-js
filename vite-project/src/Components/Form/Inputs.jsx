@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Buttons from "./Buttons";
+import "../Sass/inputs.scss";
 
 const Inputs = () => {
   const [userName, setUsername] = useState("");
   const [userAge, setUserAge] = useState("");
+  const [userData, setUserData] = useState();
 
   const userNameInputChange = (event) => {
     setUsername(event.target.value);
@@ -13,9 +15,14 @@ const Inputs = () => {
     setUserAge(event.target.value);
   };
 
+  function buttonRenderer(data) {
+    setUserData(data);
+  }
+  console.log(userData);
+
   return (
     <React.Fragment>
-      <form className="input-container">
+      <form className="form-container">
         <input
           type="text"
           onChange={userNameInputChange}
@@ -28,7 +35,7 @@ const Inputs = () => {
           onChange={userAgeInputChange}
           placeholder="Enter a valid age"
         />
-        <Buttons></Buttons>
+        <Buttons renderer={buttonRenderer}></Buttons>
       </form>
       <div className="inputPageValue">
         <h4>My Username is : {userName}</h4>
