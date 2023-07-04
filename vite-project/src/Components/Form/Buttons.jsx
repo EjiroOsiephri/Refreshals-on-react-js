@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-const Buttons = ({ renderer }) => {
+const Buttons = (props) => {
   const [user, setUser] = useState(false);
 
   function addUser(e) {
     e.preventDefault();
     setUser((prevValue) => !prevValue);
-    renderer(user);
+    props.renderer(user);
   }
 
   return (
