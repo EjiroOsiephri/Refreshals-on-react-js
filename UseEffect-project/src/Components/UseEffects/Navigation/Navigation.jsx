@@ -1,5 +1,6 @@
 import React from "react";
 import "../Navigation/navbar.scss";
+import Homepage from "../../Home/Homepage";
 
 const Navigation = () => {
   return (
@@ -7,6 +8,7 @@ const Navigation = () => {
       <div className="navbar">
         <h1>A Typical page</h1>
       </div>
+      <Homepage></Homepage>
     </React.Fragment>
   );
 };
