@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import "../Home/Homepage.scss";
 
 const Homepage = (props) => {
-  // Local Storage
-
   //States (controlling components)
 
   const [email, setEmail] = useState("");
@@ -26,17 +24,18 @@ const Homepage = (props) => {
   useEffect(() => {
     const userInfo = localStorage.getItem("isLoggedIn");
 
-    if (passwordRef.current?.value) {
-      setDisabledBtn(true);
-    } else if (emailRef.current?.value) {
-      setDisabledBtn(true);
-    } else {
-      setDisabledBtn(false);
-    }
     if (userInfo === "1") {
       props.setDisabled(true);
     }
-  }, []);
+
+    setTimeout(() => {
+      if (email.includes("@") && password.length > 6) {
+        setDisabledBtn(true);
+      } else {
+        console.log("obus");
+      }
+    }, 500);
+  }, [email, password]);
 
   return (
     <React.Fragment>

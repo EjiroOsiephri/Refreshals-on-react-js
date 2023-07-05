@@ -6,8 +6,7 @@ const Navigation = () => {
   const [disabledBtn, setDisabledBtn] = useState(false);
 
   function Logout() {
-    // setDisabledBtn(false);
-    localStorage.removeItem("isLoggedIn");
+    setDisabledBtn(false);
   }
 
   return (
