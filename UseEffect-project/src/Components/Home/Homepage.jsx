@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../Home/Homepage.scss";
 
-const Homepage = () => {
+const Homepage = (props) => {
+  // Local Storage
+
   //States (controlling components)
 
   const [email, setEmail] = useState("");
@@ -17,15 +19,24 @@ const Homepage = () => {
   function Navigatepage() {
     setEmail(emailRef.current?.value);
     setPassword(passwordRef.current?.value);
+    localStorage.setItem("isLoggedIn", 1);
+    props.setDisabled(true);
   }
 
   useEffect(() => {
+    const userInfo = localStorage.getItem("isLoggedIn");
+
     if (passwordRef.current?.value) {
       setDisabledBtn(true);
     } else if (emailRef.current?.value) {
       setDisabledBtn(true);
+    } else {
+      setDisabledBtn(false);
     }
-  }, [password, email]);
+    if (userInfo === "1") {
+      props.setDisabled(true);
+    }
+  }, []);
 
   return (
     <React.Fragment>

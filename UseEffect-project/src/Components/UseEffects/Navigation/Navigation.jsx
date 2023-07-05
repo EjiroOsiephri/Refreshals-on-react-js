@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Navigation/navbar.scss";
 import Homepage from "../../Home/Homepage";
 
 const Navigation = () => {
+  const [disabledBtn, setDisabledBtn] = useState(false);
+
+  function Logout() {
+    // setDisabledBtn(false);
+    localStorage.removeItem("isLoggedIn");
+  }
+
   return (
     <React.Fragment>
       <div className="navbar">
         <h1>A Typical page</h1>
+        {disabledBtn && <button onClick={Logout}>Signout</button>}
       </div>
-      <Homepage></Homepage>
+      <Homepage disabled={disabledBtn} setDisabled={setDisabledBtn}></Homepage>
     </React.Fragment>
   );
 };
