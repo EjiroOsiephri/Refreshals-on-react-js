@@ -8,7 +8,6 @@ const Navigation = () => {
   function Logout() {
     ctx.isDisabled = true;
   }
-  console.log(ctx.disabledBtn);
 
   return (
     <React.Fragment>
