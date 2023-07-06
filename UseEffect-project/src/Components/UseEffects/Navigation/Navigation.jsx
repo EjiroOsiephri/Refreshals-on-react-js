@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "../Navigation/navbar.scss";
-import Homepage from "../../Home/Homepage";
+import AuthContext from "../../../Store/Context";
 
 const Navigation = () => {
-  const [disabledBtn, setDisabledBtn] = useState(false);
+  const ctx = useContext(AuthContext);
 
   function Logout() {
-    setDisabledBtn(false);
+    ctx.isDisabled = true;
   }
+  console.log(ctx.disabledBtn);
 
   return (
     <React.Fragment>
       <div className="navbar">
         <h1>A Typical page</h1>
-        {disabledBtn && <button onClick={Logout}>Signout</button>}
+        <button onClick={Logout}>Signout</button>
       </div>
-      <Homepage disabled={disabledBtn} setDisabled={setDisabledBtn}></Homepage>
     </React.Fragment>
   );
 };
