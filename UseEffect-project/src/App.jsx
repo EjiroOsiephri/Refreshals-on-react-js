@@ -10,12 +10,12 @@ function App() {
   const showParagraphFunction = () => {
     showParagraph((prevValue) => !prevValue);
   };
-
+  console.log("App running");
   return (
     <>
       <div>
         <h1>Hi there!</h1>
-        <DemoOutput show={paragraph}></DemoOutput>
+        <DemoOutput show={false}></DemoOutput>
         <button onClick={showParagraphFunction}>Show paragraph</button>
       </div>
     </>
