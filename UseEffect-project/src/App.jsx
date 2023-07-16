@@ -12,21 +12,33 @@ function App() {
   }, []);
   console.log("App running");
 
-  function outerFunction() {
-    var outerVariable = "i am an outer variable";
-    function innerFunction() {
-      console.log(outerVariable);
-    }
-    return innerFunction;
-  }
-  const closure = outerFunction();
-  closure();
+  // function outerFunction() {
+  //   var outerVariable = "i am an outer variable";
+  //   function innerFunction() {
+  //     console.log(outerVariable);
+  //   }
+  //   return innerFunction;
+  // }
+  // const closure = outerFunction();
+  // closure();
 
-  const numbers = [1, 2, 3, 4, 5];
-  const array = numbers.map((item) => {
-    return item * 2;
-  });
-  console.log(array);
+  // const numbers = [1, 2, 3, 4, 5];
+  // const array = numbers.map((item) => {
+  //   return item * 2;
+  // });
+  // console.log(array);
+
+  class Person {
+    constructor(name, age) {
+      this.age = age;
+      this.name = name;
+    }
+    greet() {
+      console.log(`My name is ${this.name} and i am ${this.age} years old`);
+    }
+  }
+  const john = new Person("Ejiro", 18);
+  john.greet();
 
   return (
     <>
