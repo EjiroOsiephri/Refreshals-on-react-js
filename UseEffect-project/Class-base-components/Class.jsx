@@ -21,10 +21,26 @@ const Dummy_Arrays = [
 
 class User extends Component {
   render() {
+    function handleButtonChange(index) {
+      index.preventDefault();
+      console.log(index);
+    }
     return (
       <div>
         {Dummy_Arrays.map((item) => {
-          <h1>{item.Name}</h1>;
+          return (
+            <form key={item.id}>
+              <h2>{item.Name}</h2>
+              <button
+                onClick={() => {
+                  handleButtonChange(item.id);
+                }}
+              >
+                Change Name
+              </button>
+              ;
+            </form>
+          );
         })}
       </div>
     );
