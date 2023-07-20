@@ -3,6 +3,7 @@ import AuthContext from "./Store/Context";
 import React, { useState, useCallback } from "react";
 import Homepage from "./Components/Home/Homepage";
 import DemoOutput from "../Behind-the scenes/DemoOutput";
+import User from "../Class-base-components/Class";
 
 function App() {
   const [paragraph, showParagraph] = useState(false);
@@ -43,9 +44,7 @@ function App() {
   return (
     <>
       <div>
-        <h1>Hi there!</h1>
-        <DemoOutput show={false}></DemoOutput>
-        <button onClick={showParagraphFunction}>Show paragraph</button>
+        <User />
       </div>
     </>
   );
