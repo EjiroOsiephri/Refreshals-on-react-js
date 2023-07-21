@@ -4,6 +4,7 @@ import "./App.scss";
 import { useEffect } from "react";
 import { useCallback } from "react";
 import AddMovie from "./components/MovieData/AddMovie";
+import axios from "axios";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -14,15 +15,15 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch("https://swapi.dev/api/films/");
+      const response = await axios.get(
+        "https://react-https-def9f-default-rtdb.firebaseio.com/Movies.json"
+      );
 
       if (!response.ok) {
         throw new Error("Something went wrong");
       }
 
-      const data = await response.json();
-
-      const transFormedMovieHandler = data?.results.map((item) => {
+      const transFormedMovieHandler = response.data?.results.map((item) => {
         return {
           title: item.title,
           id: item.episode_id,
@@ -36,10 +37,14 @@ function App() {
     }
 
     setIsLoading(false);
-  });
+  }, []);
 
-  function addMovieHandler(movie) {
-    console.log(movie);
+  async function addMovieHandler(movie) {
+    const response = await axios.post(
+      "https://react-https-def9f-default-rtdb.firebaseio.com/Movies.json",
+      movie
+    );
+    console.log(response.data);
   }
 
   useEffect(() => {
