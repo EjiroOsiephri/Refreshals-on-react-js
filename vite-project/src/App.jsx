@@ -3,6 +3,7 @@ import MovieData from "./components/MovieData/MovieData";
 import "./App.scss";
 import { useEffect } from "react";
 import { useCallback } from "react";
+import AddMovie from "./components/MovieData/AddMovie";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -37,12 +38,19 @@ function App() {
     setIsLoading(false);
   });
 
+  function addMovieHandler(movie) {
+    console.log(movie);
+  }
+
   useEffect(() => {
     fetchMoviesData();
   }, [fetchMoviesData]);
 
   return (
     <Fragment>
+      <section>
+        <AddMovie onAddMovie={addMovieHandler}></AddMovie>
+      </section>
       <section>
         <button onClick={fetchMoviesData}>Fetch Movies</button>
       </section>
