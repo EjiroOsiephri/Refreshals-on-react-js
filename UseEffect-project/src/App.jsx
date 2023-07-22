@@ -4,6 +4,8 @@ import React, { useState, useCallback } from "react";
 import Homepage from "./Components/Home/Homepage";
 import DemoOutput from "../Behind-the scenes/DemoOutput";
 import User from "../Class-base-components/Class";
+import BackwardCounter from "./Components/custom-hooks/BackwardCounter";
+import ForwardCounter from "./Components/custom-hooks/ForwardCounter";
 
 function App() {
   const [paragraph, showParagraph] = useState(false);
@@ -43,9 +45,8 @@ function App() {
 
   return (
     <>
-      <div>
-        <User />
-      </div>
+      <ForwardCounter></ForwardCounter>
+      <BackwardCounter></BackwardCounter>
     </>
   );
 }
