@@ -19,19 +19,17 @@ function App() {
         "https://react-https-def9f-default-rtdb.firebaseio.com/Movies.json"
       );
 
-      if (!response.ok) {
-        throw new Error("Something went wrong");
+      const finishedMovies = [];
+
+      for (const key in response.data) {
+        finishedMovies.push({
+          id: key,
+          title: response.data[key].title,
+          openingText: response.data[key].openingText,
+        });
       }
 
-      const transFormedMovieHandler = response.data?.results.map((item) => {
-        return {
-          title: item.title,
-          id: item.episode_id,
-          openingText: item.opening_crawl,
-        };
-      });
-
-      setMovies(transFormedMovieHandler);
+      setMovies(finishedMovies);
     } catch (error) {
       setError(error.message);
     }
