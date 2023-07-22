@@ -1,17 +1,7 @@
-import React, { useEffect, useState } from "react";
+import useCounter from "./useCounter";
 
 const BackwardCounter = () => {
-  const [counter, setCounter] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCounter((prevCount) => prevCount - 1);
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+  const counter = useCounter(false);
 
   return <div>{counter}</div>;
 };
