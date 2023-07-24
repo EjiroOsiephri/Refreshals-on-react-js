@@ -3,6 +3,7 @@ import SimpleInput from "./Working with inputs/SimpleInput";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import BasicForm from "./Working with inputs/Forms";
 
 function App() {
   const [tasks, setTasks] = useState(null);
@@ -47,7 +48,7 @@ function App() {
   return (
     <>
       <div className="app">
-        <SimpleInput />
+        <BasicForm />
       </div>
     </>
   );
