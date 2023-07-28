@@ -1,19 +1,14 @@
-import Counter from "./Components/Counter";
-import Header from "./Components/Header";
-import Auth from "./Components/Auth";
-import UserProfile from "./Components/UserProfile";
-import { useSelector, useDispatch } from "react-redux";
+import Layout from "./Advanced Redux/Layout/Layout";
+import Cart from "./Advanced Redux/Cart/Cart";
+import Products from "./Advanced Redux/Shop/Products";
 
 function App() {
-  const authState = useSelector(
-    (state) => state.authentication.initialAuthState
-  );
-  console.log(authState);
   return (
     <>
-      <Header />
-      <section>{authState ? <UserProfile /> : <Auth />}</section>
-      <Counter />
+      <Layout>
+        <Cart />
+        <Products />
+      </Layout>
     </>
   );
 }
