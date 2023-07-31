@@ -1,15 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, useMatch } from "react-router-dom";
+import Classes from "../sass/Mainheader.module.scss";
 
 const Mainheader = () => {
+  const isCartActive = useMatch("/carts");
+  const isWelcomeActive = useMatch("/welcome");
+
   return (
-    <nav>
+    <nav className={Classes.header}>
       <ul>
         <li>
-          <Link to="/welcome">Welcome</Link>
+          <NavLink
+            className={isWelcomeActive ? Classes.active : ""}
+            to="/welcome"
+          >
+            Welcome
+          </NavLink>
         </li>
         <li>
-          <Link to="/carts">Carts</Link>
+          <NavLink className={isCartActive ? Classes.active : ""} to="/carts">
+            Carts
+          </NavLink>
         </li>
       </ul>
     </nav>
