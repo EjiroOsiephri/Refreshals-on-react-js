@@ -1,7 +1,7 @@
 import React from "react";
 
-const carts = () => {
+const Carts = () => {
   return <div>Welcome to carts section</div>;
 };
 
-export default carts;
+export default Carts;
