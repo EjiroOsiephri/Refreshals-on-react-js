@@ -1,8 +1,11 @@
+import { Route, Routes } from "react-router-dom";
+import Welcome from "./Components/Welcome";
+
 function App() {
   return (
-    <>
-      <h1>Lets get started</h1>
-    </>
+    <Routes>
+      <Route path="/welcome" element={<Welcome />}></Route>
+    </Routes>
   );
 }
 
