@@ -11,7 +11,7 @@ function App() {
     <Fragment>
       <Mainheader />
       <Routes>
-        <Route path="/"></Route>
+        <Route path="/" element={<Welcome />}></Route>
         <Route path="/welcome/*" element={<Welcome />}></Route>
         <Route path="/carts" element={<Carts />}></Route>
         <Route path="/carts/:productId" element={<CartDetail />}></Route>
