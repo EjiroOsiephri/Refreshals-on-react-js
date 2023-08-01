@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Notfound = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/carts");
+    }, 2000);
+  }, []);
   return (
     <div>
-      <h1>Not Found</h1>
+      <Navigate to="/welcome" />
     </div>
   );
 };
