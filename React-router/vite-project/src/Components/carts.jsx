@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const Carts = () => {
-  const [number, setNumber] = useState(4);
+  const [searchParams, setUseSearchParams] = useSearchParams({ n: 4 });
+  const number = searchParams.get("n");
   return (
     <div>
       <h1>Welcome to cart page</h1>
       <ul>
         <li>
-          <Link to="/carts/p1">product 1</Link>
+          <Link state="Welcome" to="/carts/p1">
+            product 1
+          </Link>
         </li>
         <li>
           <Link to="/carts/p2">product 2</Link>
@@ -24,7 +27,7 @@ const Carts = () => {
         type="number"
         value={number}
         onChange={(e) => {
-          return setNumber(e.target.value);
+          return setUseSearchParams({ n: e.target.value });
         }}
       />
     </div>

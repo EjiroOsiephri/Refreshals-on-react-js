@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const Notfound = () => {
   const navigate = useNavigate();
+
   useEffect(() => {
     setTimeout(() => {
       navigate("/carts");

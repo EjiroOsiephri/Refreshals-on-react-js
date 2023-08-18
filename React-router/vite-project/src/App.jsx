@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Welcome from "./Components/Welcome";
 import Carts from "./Components/carts";
 import { Fragment } from "react";
@@ -7,6 +7,8 @@ import CartDetail from "./Components/CartDetail";
 import Notfound from "./Components/Notfound";
 
 function App() {
+  const location = useLocation();
+  console.log(location.state);
   return (
     <Fragment>
       <Mainheader />
