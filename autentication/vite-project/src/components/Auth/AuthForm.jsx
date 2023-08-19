@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import classes from "./AuthForm.module.css";
 import { useContext } from "react";
@@ -7,6 +8,8 @@ import AuthContext from "../../Store/Auth-context";
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const ctx = useContext(AuthContext);
 
@@ -40,8 +43,9 @@ const AuthForm = () => {
           }
         );
         const data = await response.json();
-        console.log(data);
         ctx.login(data.idToken);
+        console.log(data);
+        navigate("/");
       } catch (error) {
         alert(error.message);
       }
@@ -64,8 +68,9 @@ const AuthForm = () => {
         );
         const data = await response.json();
         console.log(data);
+        navigate("/");
       } catch (error) {
-        alert(error.error.message);
+        alert(error.message);
       }
       setIsLoading(false);
     }
